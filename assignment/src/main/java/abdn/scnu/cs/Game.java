@@ -26,12 +26,7 @@ public class Game implements GameControls {
                 System.out.println("MISS!!!");
             }
         }
-        for (int i = 0; i < this.opponentGameGrid.gameGrid.length; i++) {
-            for (int j = 0; j < this.opponentGameGrid.gameGrid[i].length; j++) {
-                System.out.print(this.opponentGameGrid.gameGrid[i][j]);
-            }
-            System.out.println();
-        }
+        this.opponentGameGrid.printGrid();
         this.opponentRound();
     }
 
@@ -67,8 +62,16 @@ public class Game implements GameControls {
         return this.playerGameGrid;
     }
 
-    @Override
     public AbstractGameGrid getOpponentssGrid() {
         return this.opponentGameGrid;
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game(4, 4, 1);
+
+        // find out where opponent's ship is
+        int coordinates[][] = ((OpponentGameGrid) game.getOpponentssGrid()).ships[0].shipCoordinates;
+
+        game.playRound(coordinates[0][0] + "," + coordinates[0][1]);
     }
 }

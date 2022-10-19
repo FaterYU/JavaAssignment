@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: abdn.scnu.cs.GameTests
--------------------------------------------------------------------------------
-Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.11 s <<< FAILURE! - in abdn.scnu.cs.GameTests
-t3_4(abdn.scnu.cs.GameTests)  Time elapsed: 0.007 s  <<< FAILURE!
-java.lang.AssertionError: [47m[30mT3.4: Something is wrong with you rplayRound method. Check your code and also code of this test to see what is expected when your method is called.    [0mjava.lang.AssertionError
-	at abdn.scnu.cs.GameTests.t3_4(GameTests.java:530)
-
