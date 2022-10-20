@@ -1,0 +1,125 @@
+# Created at 2022-10-20T10:19:52.545
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:398)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+# Created at 2022-10-20T10:19:53.053
+Unexpected IOException: I,1,java.vm.info,mixed mode\002C sharing
+
+
+# Created at 2022-10-20T10:19:53.053
+Unexpected IOException: I,1,java.vendor,Oracle Corporation
+
+
+# Created at 2022-10-20T10:19:53.053
+Unexpected IOException: I,1,java.vm.version,17.0.1+12-LTS-39
+
+
+# Created at 2022-10-20T10:19:53.057
+Unexpected IOException: I,1,sun.io.unicode.encoding,UnicodeLittle
+
+
+# Created at 2022-10-20T10:19:53.057
+Unexpected IOException: I,1,java.class.version,61.0
+
+
+# Created at 2022-10-20T10:19:53.077
+Unexpected IOException: 1,1,org.apache.maven.surefire.junit4.JUnit4Provider,abdn.scnu.cs.GameTests,null,null,null
+
+
+# Created at 2022-10-20T10:19:53.106
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t1_1_a(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.106
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t1_1_a(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.106
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t1_1_b(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t1_1_b(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t1_2(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t1_2(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t1_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t1_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t2_1(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t2_1(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.110
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t2_2(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.114
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t2_2(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.114
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t2_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.162
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t2_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.162
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t2_4(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t2_4(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t3_1(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t3_1(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t3_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t3_3(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 5,1,abdn.scnu.cs.GameTests,t3_4(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.166
+Unexpected IOException: 6,1,abdn.scnu.cs.GameTests,t3_4(abdn.scnu.cs.GameTests),null,null,null
+
+
+# Created at 2022-10-20T10:19:53.170
+Unexpected IOException: 2,1,org.apache.maven.surefire.junit4.JUnit4Provider,abdn.scnu.cs.GameTests,null,null,null
+
+

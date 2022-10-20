@@ -23,7 +23,7 @@ public class BattleShip extends AbstractBattleShip {
         for (int i = 0; i < this.shipCoordinates.length; i++) {
             if (this.shipCoordinates[i][0] == row && this.shipCoordinates[i][1] == colum) {
                 for (int j = 0; j < this.shipCoordinatesRecord.size(); j++) {
-                    if (this.shipCoordinatesRecord.get(i)[0] == row && this.shipCoordinatesRecord.get(i)[1] == colum) {
+                    if (this.shipCoordinatesRecord.get(j)[0] == row && this.shipCoordinatesRecord.get(j)[1] == colum) {
                         return false;
                     }
                 }
