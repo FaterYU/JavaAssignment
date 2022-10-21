@@ -49,9 +49,10 @@ public class Game implements GameControls {
                 this.playerGameGrid.gameGrid[row][colum] = "X";
                 isHit = true;
                 System.out.println("HIT " + this.playerGameGrid.ships[i].name + "!!!");
-            } else {
-                this.playerGameGrid.gameGrid[row][colum] = "%";
             }
+        }
+        if (this.playerGameGrid.gameGrid[row][colum] != "X") {
+            this.playerGameGrid.gameGrid[row][colum] = "%";
         }
         if (!isHit) {
             System.out.println("MISS!!!");
