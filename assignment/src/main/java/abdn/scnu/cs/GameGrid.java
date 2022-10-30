@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class GameGrid extends AbstractGameGrid {
 
-    public GameGrid(int width, int high, int numberOfShips) {
-        this.gameGrid = new String[width][high];
+    public GameGrid(int row, int colum, int numberOfShips) {
+        this.gameGrid = new String[row][colum];
         this.ships = new BattleShip[numberOfShips];
         this.initializeGrid();
         this.generateShips(numberOfShips);

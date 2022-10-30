@@ -21,6 +21,23 @@ public class RunGame {
         this.game = game;
     }
 
+    public boolean checkInput(String ch) {
+        String pattern = "^[0-9]+,[0-9]+$";
+        if (!ch.matches(pattern)) {
+            System.out.println("Incorret input");
+            return false;
+        } else {
+            int row = Integer.parseInt(ch.split(",")[0]);
+            int colum = Integer.parseInt(ch.split(",")[1]);
+            if (row >= this.high || colum >= this.width) {
+                System.out.println("Incorret input");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
     public void gameLoop() {
         Scanner input = new Scanner(System.in);
         while (!this.game.checkVictory()) {
@@ -28,7 +45,9 @@ public class RunGame {
             if (input.hasNextLine()) {
                 String ch = input.nextLine();
                 this.game.exitGame(ch);
-                this.game.playRound(ch);
+                if (this.checkInput(ch)) {
+                    this.game.playRound(ch);
+                }
             }
         }
         input.close();

@@ -1,8 +1,8 @@
 package abdn.scnu.cs;
 
 public class PlayerGameGrid extends GameGrid {
-    public PlayerGameGrid(int width, int high, int numberOfShips) {
-        super(width, high, numberOfShips);
+    public PlayerGameGrid(int row, int colum, int numberOfShips) {
+        super(row, colum, numberOfShips);
     }
 
     public void printGrid() {

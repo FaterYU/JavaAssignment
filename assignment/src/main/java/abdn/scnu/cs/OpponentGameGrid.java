@@ -2,8 +2,8 @@ package abdn.scnu.cs;
 
 public class OpponentGameGrid extends GameGrid {
 
-    public OpponentGameGrid(int width, int high, int numberOfShips) {
-        super(width, high, numberOfShips);
+    public OpponentGameGrid(int row, int colum, int numberOfShips) {
+        super(row, colum, numberOfShips);
     }
 
     public void printGrid() {
