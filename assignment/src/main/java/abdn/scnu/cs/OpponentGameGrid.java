@@ -1,11 +1,12 @@
 package abdn.scnu.cs;
 
 public class OpponentGameGrid extends GameGrid {
-
+    // constructor
     public OpponentGameGrid(int row, int colum, int numberOfShips) {
         super(row, colum, numberOfShips);
     }
 
+    // print opponent grid
     public void printGrid() {
         for (int i = 0; i < this.gameGrid.length; i++) {
             for (int j = 0; j < this.gameGrid[i].length; j++) {

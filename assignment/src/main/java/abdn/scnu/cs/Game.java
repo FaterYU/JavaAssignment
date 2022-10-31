@@ -6,11 +6,13 @@ public class Game implements GameControls {
     PlayerGameGrid playerGameGrid;
     OpponentGameGrid opponentGameGrid;
 
+    // constructor
     public Game(int row, int colum, int numberOfShips) {
         this.playerGameGrid = new PlayerGameGrid(row, colum, numberOfShips);
         this.opponentGameGrid = new OpponentGameGrid(row, colum, numberOfShips);
     }
 
+    // player round
     public void playRound(String input) {
         System.out.println("Player is attacking");
         String coordinates[] = input.split(",");
@@ -37,10 +39,12 @@ public class Game implements GameControls {
         this.opponentGameGrid.printGrid();
     }
 
+    // oppenent coordinates decision
     private int[] decision() {
         int row = this.getPlayersGrid().gameGrid.length;
         int colum = this.getPlayersGrid().gameGrid[0].length;
         double[][] probability = new double[row][colum];
+        // depend on "X" coordinates
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < colum; j++) {
                 int u = i > 1 ? i - 2 : 0;
@@ -61,6 +65,7 @@ public class Game implements GameControls {
                 }
             }
         }
+        // convert the probability which on "X"
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < colum; j++) {
                 if (this.getPlayersGrid().gameGrid[i][j] == "X") {
@@ -82,6 +87,7 @@ public class Game implements GameControls {
             }
         }
         int[] result = new int[] { 0, 0 };
+        // get the result whose probability is max
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < colum; j++) {
                 if (probability[i][j] > probability[result[0]][result[1]]) {
@@ -91,6 +97,7 @@ public class Game implements GameControls {
             }
         }
         if (probability[result[0]][result[1]] <= 0) {
+            // depend on the number of unknown dots
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < colum; j++) {
                     int u = i > 1 ? i - 2 : 0;
@@ -129,6 +136,7 @@ public class Game implements GameControls {
         return result;
     }
 
+    // opponent round
     private void opponentRound() {
         System.out.println("Oppenent is attacking");
         int[] decision = this.decision();
@@ -150,6 +158,7 @@ public class Game implements GameControls {
         }
     }
 
+    // check game victory
     public boolean checkVictory() {
         int opponentcount = 0;
         int playercount = 0;
@@ -159,6 +168,7 @@ public class Game implements GameControls {
         for (int i = 0; i < this.playerGameGrid.ships.length; i++) {
             playercount += this.playerGameGrid.ships[i].hits == 3 ? 1 : 0;
         }
+        // if win at the same round, return player win
         if (opponentcount == this.opponentGameGrid.ships.length && playercount <= this.playerGameGrid.ships.length) {
             System.out.println("You have won!");
             return true;
@@ -171,6 +181,7 @@ public class Game implements GameControls {
         }
     }
 
+    // exit game
     public void exitGame(String input) {
         if (input.contains("exit")) {
             System.out.println("Exiting game-thank you for playing");
@@ -178,10 +189,12 @@ public class Game implements GameControls {
         }
     }
 
+    // get player grid
     public GameGrid getPlayersGrid() {
         return this.playerGameGrid;
     }
 
+    // get opponent grid
     public GameGrid getOpponentssGrid() {
         return this.opponentGameGrid;
     }

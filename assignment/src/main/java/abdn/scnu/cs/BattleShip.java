@@ -6,6 +6,7 @@ import java.util.Random;
 public class BattleShip extends AbstractBattleShip {
     private ArrayList<int[]> shipCoordinatesRecord = new ArrayList<int[]>();
 
+    // constructor
     public BattleShip(String name) {
         this.name = name;
         this.setHits(0);
@@ -13,6 +14,7 @@ public class BattleShip extends AbstractBattleShip {
         this.shipOrientation = rand.nextBoolean() ? "vertical" : "horizontal";
     }
 
+    // check whether ship is attacked
     public boolean checkAttack(int row, int colum) {
         if (this.getHits() == 3) {
             return false;
@@ -35,26 +37,32 @@ public class BattleShip extends AbstractBattleShip {
         return false;
     }
 
+    // get ship name
     public String getName() {
         return this.name;
     }
 
+    // get the number of hits
     public int getHits() {
         return this.hits;
     }
 
+    // get orientation of ship
     public String getShipOrientation() {
         return this.shipOrientation;
     }
 
+    // set the number of hits
     public void setHits(int hits) {
         this.hits = hits;
     }
 
+    // get coordinates of ship
     public int[][] getShipCoordinates() {
         return this.shipCoordinates;
     }
 
+    // set coordinates of ship
     public void setShipCoordinates(int[][] shipCoordinates) {
         this.shipCoordinates = shipCoordinates;
     }

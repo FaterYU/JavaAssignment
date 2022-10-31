@@ -4,7 +4,7 @@ import abdn.scnu.cs.BattleShip;
 import java.util.Random;
 
 public class GameGrid extends AbstractGameGrid {
-
+    // constructor
     public GameGrid(int row, int colum, int numberOfShips) {
         this.gameGrid = new String[row][colum];
         this.ships = new BattleShip[numberOfShips];
@@ -12,6 +12,7 @@ public class GameGrid extends AbstractGameGrid {
         this.generateShips(numberOfShips);
     }
 
+    // initialize grid
     public void initializeGrid() {
         for (int i = 0; i < this.gameGrid.length; i++) {
             for (int j = 0; j < this.gameGrid[i].length; j++) {
@@ -20,6 +21,7 @@ public class GameGrid extends AbstractGameGrid {
         }
     }
 
+    // generate ships
     public void generateShips(int numberOfShips) {
         for (int i = 0; i < numberOfShips; i++) {
             BattleShip ship = new BattleShip("Ship " + (i + 1));
@@ -28,6 +30,7 @@ public class GameGrid extends AbstractGameGrid {
         }
     }
 
+    // place ship
     public void placeShip(BattleShip ship) {
         int x_size = ship.getShipOrientation() == "vertical" ? this.gameGrid.length : this.gameGrid.length - 2;
         int y_size = ship.getShipOrientation() == "vertical" ? this.gameGrid[0].length - 2 : this.gameGrid[0].length;
@@ -46,10 +49,4 @@ public class GameGrid extends AbstractGameGrid {
         }
         ship.setShipCoordinates(shipCoordinates);
     }
-
-    public static void main(String[] args) {
-        GameGrid gameGrid = new GameGrid(10, 10, 4);
-        System.out.println(gameGrid.ships);
-    }
-
 }
