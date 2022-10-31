@@ -47,45 +47,37 @@ public class Game implements GameControls {
                 int d = i < row - 2 ? i + 2 : row - 1;
                 int l = j > 1 ? j - 2 : 0;
                 int r = j < colum - 2 ? j + 2 : colum - 1;
-                int cot = 0;
-                for (; u <= d; u++) {
-                    if (this.getPlayersGrid().gameGrid[u][j] != "X" && this.getPlayersGrid().gameGrid[u][j] != "%"
-                            && u != i) {
-                        cot++;
+                if (this.getPlayersGrid().gameGrid[i][j] == "X") {
+                    for (int k = u; k <= d; k++) {
+                        if (k != i) {
+                            probability[k][j] += (1d / 3) / Math.abs(k - i);
+                        }
+                    }
+                    for (int k = l; k <= r; k++) {
+                        if (k != j) {
+                            probability[i][k] += (1d / 3) / Math.abs(k - j);
+                        }
                     }
                 }
-                for (; l <= r; l++) {
-                    if (this.getPlayersGrid().gameGrid[i][d] != "X" && this.getPlayersGrid().gameGrid[i][d] != "%"
-                            && l != j) {
-                        cot++;
-                    }
-                }
-                probability[i][j] = cot / 8;
             }
         }
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < colum; j++) {
-                int u = i > 1 ? i - 2 : 0;
-                int d = i < row - 2 ? i + 2 : row - 1;
-                int l = j > 1 ? j - 2 : 0;
-                int r = j < colum - 2 ? j + 2 : colum - 1;
                 if (this.getPlayersGrid().gameGrid[i][j] == "X") {
+                    for (int x = -1; x < 2; x++) {
+                        if (i + x > -1 && i + x < row) {
+                            probability[i + x][j] += probability[i][j];
+                        }
+                    }
+                    for (int x = -1; x < 2; x++) {
+                        if (j + x > -1 && j + x < colum) {
+                            probability[i][j + x] += probability[i][j];
+                        }
+                    }
                     probability[i][j] = Integer.MIN_VALUE;
-                    for (int k = u; k <= d; k++) {
-                        probability[k][j] += (1 / 3) * Math.abs(k - i);
-                    }
-                    for (int k = l; k <= r; k++) {
-                        probability[i][k] += (1 / 3) * Math.abs(k - j);
-                    }
                 }
                 if (this.getPlayersGrid().gameGrid[i][j] == "%") {
                     probability[i][j] = Integer.MIN_VALUE;
-                    for (int k = u; k <= d; k++) {
-                        probability[k][j] -= (1 / 3) * Math.abs(k - i);
-                    }
-                    for (int k = l; k <= r; k++) {
-                        probability[i][k] -= (1 / 3) * Math.abs(k - j);
-                    }
                 }
             }
         }
@@ -98,17 +90,50 @@ public class Game implements GameControls {
                 }
             }
         }
+        if (probability[result[0]][result[1]] <= 0) {
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < colum; j++) {
+                    int u = i > 1 ? i - 2 : 0;
+                    int d = i < row - 2 ? i + 2 : row - 1;
+                    int l = j > 1 ? j - 2 : 0;
+                    int r = j < colum - 2 ? j + 2 : colum - 1;
+                    double cot = 0;
+                    for (; u <= d; u++) {
+                        if (this.getPlayersGrid().gameGrid[u][j] != "X" &&
+                                this.getPlayersGrid().gameGrid[u][j] != "%"
+                                && u != i) {
+                            cot++;
+                        }
+                    }
+                    for (; l <= r; l++) {
+                        if (this.getPlayersGrid().gameGrid[i][l] != "X" &&
+                                this.getPlayersGrid().gameGrid[i][l] != "%"
+                                && l != j) {
+                            cot++;
+                        }
+                    }
+                    if (probability[i][j] >= 0) {
+                        probability[i][j] = cot / 8;
+                    }
+                }
+            }
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < colum; j++) {
+                    if (probability[i][j] > probability[result[0]][result[1]]) {
+                        result[0] = i;
+                        result[1] = j;
+                    }
+                }
+            }
+        }
         return result;
     }
 
     private void opponentRound() {
         System.out.println("Oppenent is attacking");
-        Random rand = new Random();
-        int row = rand.nextInt(this.playerGameGrid.gameGrid.length);
-        int colum = rand.nextInt(this.playerGameGrid.gameGrid[0].length);
-        // int[] decision = this.decision();
-        // int row = decision[0];
-        // int colum = decision[1];
+        int[] decision = this.decision();
+        int row = decision[0];
+        int colum = decision[1];
         boolean isHit = false;
         for (int i = 0; i < this.playerGameGrid.ships.length; i++) {
             if (this.playerGameGrid.ships[i].checkAttack(row, colum)) {
@@ -134,7 +159,7 @@ public class Game implements GameControls {
         for (int i = 0; i < this.playerGameGrid.ships.length; i++) {
             playercount += this.playerGameGrid.ships[i].hits == 3 ? 1 : 0;
         }
-        if (opponentcount == this.opponentGameGrid.ships.length && playercount < this.playerGameGrid.ships.length) {
+        if (opponentcount == this.opponentGameGrid.ships.length && playercount <= this.playerGameGrid.ships.length) {
             System.out.println("You have won!");
             return true;
         } else if (opponentcount < this.opponentGameGrid.ships.length

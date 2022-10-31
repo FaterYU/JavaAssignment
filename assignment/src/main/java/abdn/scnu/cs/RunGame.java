@@ -3,17 +3,17 @@ package abdn.scnu.cs;
 import java.util.Scanner;
 
 public class RunGame {
-    private int width, high, numberOfShips;
+    private int row, colum, numberOfShips;
     Game game;
 
-    public RunGame(int width, int high, int numberOfShips) {
-        this.width = width;
-        this.high = high;
+    public RunGame(int row, int colum, int numberOfShips) {
+        this.row = row;
+        this.colum = colum;
         this.numberOfShips = numberOfShips;
     }
 
     public void initial() {
-        Game game = new Game(this.width, this.high, this.numberOfShips);
+        Game game = new Game(this.row, this.colum, this.numberOfShips);
         System.out.println("Player's grid");
         game.playerGameGrid.printGrid();
         System.out.println("Opponent's grid");
@@ -29,7 +29,7 @@ public class RunGame {
         } else {
             int row = Integer.parseInt(ch.split(",")[0]);
             int colum = Integer.parseInt(ch.split(",")[1]);
-            if (row >= this.high || colum >= this.width) {
+            if (row >= this.row || colum >= this.colum) {
                 System.out.println("Incorret input");
                 return false;
             } else {
