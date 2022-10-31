@@ -1,5 +1,9 @@
 # Report
 
+## Github link
+
+[JavaAssignment](https://github.com/FaterYU/JavaAssignment)
+
 ## Task
 
 ### Task 1
