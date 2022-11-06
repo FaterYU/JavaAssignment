@@ -15,7 +15,7 @@ mvn package
 - run the jar with you params which are **height**, **width** and **number of ships**
 
 ```shell
-java -jar .\target\assignment-1.0-SNAPSHOT.jar 5 5 3
+java -jar ./target/assignment-1.0-SNAPSHOT.jar 5 5 3
 ```
 
 ## Task report
