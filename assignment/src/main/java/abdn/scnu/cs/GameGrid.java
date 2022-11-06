@@ -31,7 +31,7 @@ public class GameGrid extends AbstractGameGrid {
     }
 
     // place ship
-    public void placeShip(BattleShip ship) {
+    public void placeShip(AbstractBattleShip ship) {
         int x_size = ship.getShipOrientation() == "vertical" ? this.gameGrid.length : this.gameGrid.length - 2;
         int y_size = ship.getShipOrientation() == "vertical" ? this.gameGrid[0].length - 2 : this.gameGrid[0].length;
         Random rand = new Random();

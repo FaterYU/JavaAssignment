@@ -28,14 +28,12 @@ public class RunGame {
         // regex
         String pattern = "^[0-9]+,[0-9]+$";
         if (!ch.matches(pattern)) {
-            System.out.println("Incorrect input");
-            return false;
+            throw new IOException("Incorrect input");
         } else {
             int row = Integer.parseInt(ch.split(",")[0]);
             int colum = Integer.parseInt(ch.split(",")[1]);
             if (row >= this.row || colum >= this.colum) {
-                System.out.println("Incorrect input");
-                return false;
+                throw new IOException("Incorrect input");
             } else {
                 return true;
             }

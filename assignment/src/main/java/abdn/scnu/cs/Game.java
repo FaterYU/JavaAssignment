@@ -184,7 +184,7 @@ public class Game implements GameControls {
     // exit game
     public void exitGame(String input) {
         if (input.contains("exit")) {
-            System.out.println("Exiting game-thank you for playing");
+            System.out.println("Exiting game - thank you for playing");
             System.exit(0);
         }
     }
